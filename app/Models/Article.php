@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model 
 {
-    use HasFactory;
-
     protected $table = 'articles'; 
+
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -33,12 +32,12 @@ class Article extends Model
      */
     public function event()
     {
-        return $this->hasOne(Event::class, 'id', 'events');
+        return $this->belongsTo(Event::class);
     }
 
     public function launch()
     {
-        return $this->hasOne(Launche::class, 'id', 'launches');
+        return $this->belongsTo(Launche::class, 'id', 'launches');
     }
 
 }

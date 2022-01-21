@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Launche extends Model 
-{
-    use HasFactory;
-
+{  
     protected $table = 'launches'; 
+
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -19,5 +18,13 @@ class Launche extends Model
     protected $fillable = [
         'provider', 
     ];
+
+    /**
+     * Relacionamentos
+     */
+    public function article()
+    {
+        return $this->hasMany(Article::class);
+    }
 
 }

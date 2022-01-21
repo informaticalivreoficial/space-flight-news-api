@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model 
 {
-    use HasFactory;
-
     protected $table = 'events'; 
+
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -19,5 +18,13 @@ class Event extends Model
     protected $fillable = [
         'provider', 
     ];
+
+    /**
+     * Relacionamentos
+     */
+    public function article()
+    {
+        return $this->hasMany(Article::class);
+    }
 
 }

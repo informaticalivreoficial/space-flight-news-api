@@ -26,7 +26,6 @@ class Articles extends Migration
             $table->string('launches');
             $table->unsignedInteger('events');
 
-            $table->foreign('launches')->references('id')->on('launches')->onDelete('CASCADE');
             $table->foreign('events')->references('id')->on('events')->onDelete('CASCADE');
         });
     }
