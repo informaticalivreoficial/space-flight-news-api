@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ArticleResource;
 use App\Services\ArticleService;
 
 class ArticleController extends Controller
@@ -15,6 +16,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        return $this->articleService->getArticles();
+        $articles = $this->articleService->getArticles(); 
+        return ArticleResource::collection($articles);      
     }
 }

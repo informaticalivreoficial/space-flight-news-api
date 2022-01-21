@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model 
 {
     protected $table = 'articles'; 
-
-    public $timestamps = false;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -26,18 +24,5 @@ class Article extends Model
         'launches',
         'events',
     ];
-
-    /**
-     * Relacionamentos
-     */
-    public function event()
-    {
-        return $this->belongsTo(Event::class);
-    }
-
-    public function launch()
-    {
-        return $this->belongsTo(Launche::class, 'id', 'launches');
-    }
 
 }

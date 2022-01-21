@@ -19,12 +19,4 @@ class Event extends Model
         'provider', 
     ];
 
-    /**
-     * Relacionamentos
-     */
-    public function article()
-    {
-        return $this->hasMany(Article::class);
-    }
-
 }

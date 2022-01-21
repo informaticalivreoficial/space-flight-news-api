@@ -8,13 +8,13 @@ class ArticleRepository
 {
     protected $entity;
 
-    public function __construct(Article $entity)
+    public function __construct(Article $article)
     {
-        $this->entity = $entity;
+        $this->entity = $article;
     }
 
     public function getArticlesAll()
     {
-        return $this->entity->paginate(10);
+        return $this->entity->get();
     }
 }

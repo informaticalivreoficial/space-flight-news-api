@@ -17,8 +17,16 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/teste', function() {
-    return [
-        'teste 1' => 'funcionou'
-    ];
+// $router->get('/teste', function() {
+//     return [
+//         'teste 1' => 'funcionou'
+//     ];
+// });
+
+$router->get('/articles', 'ArticlesController@index');
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+
+    $router->get('articles', ['uses' => 'ArticleController@index']);
+    
 });

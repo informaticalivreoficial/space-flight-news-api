@@ -21,12 +21,11 @@ class Articles extends Migration
             $table->string('imageUrl');
             $table->string('newsSite');
             $table->string('summary');
-            $table->string('publishedAt');   
             
-            $table->string('launches');
-            $table->unsignedInteger('events');
-
-            $table->foreign('events')->references('id')->on('events')->onDelete('CASCADE');
+            $table->timestamps();   
+            
+            $table->string('launches')->nullable();
+            $table->string('events')->nullable();            
         });
     }
 
