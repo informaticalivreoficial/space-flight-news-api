@@ -17,6 +17,13 @@ class ArticleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'url' => $this->url,
+            'imageUrl' => $this->imageUrl,
+            'newsSite' => $this->newsSite,
+            'summary' => $this->summary,
+            'publishedAt' => $this->created_at,
+            'launches' => $this->launches,
+            'events' => $this->events,
         ];
     }
 }

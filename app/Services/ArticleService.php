@@ -17,4 +17,20 @@ class ArticleService
     {
         return $this->articleRepository->getArticlesAll();
     }
+
+    public function getArticle(int $data)
+    {
+        return $this->articleRepository->getArticleById($data);
+    }
+
+    public function createArticle(array $data)
+    {
+        //dd($data['url']);
+        return $this->articleRepository->createArticle($data);
+    }
+
+    public function updateArticle(array $data)
+    {
+        return $this->articleRepository->updateArticle($data);
+    }
 }

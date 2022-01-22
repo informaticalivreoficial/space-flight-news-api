@@ -15,6 +15,21 @@ class ArticleRepository
 
     public function getArticlesAll()
     {
-        return $this->entity->get();
+        return $this->entity->paginate(10);
+    }
+
+    public function getArticleById(int $data)
+    {
+        return $this->entity->where('id', $data)->firstOrfail();
+    }
+
+    public function createArticle(array $data)
+    {
+        return $this->entity->create($data);
+    }
+
+    public function updateArticle(array $data)
+    {
+        return $this->entity->update($data);
     }
 }
