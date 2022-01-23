@@ -6,7 +6,7 @@ use App\Repositories\ArticleRepository;
 
 class ArticleService
 {
-    protected $articleRepository;
+    protected $articleRepository;    
 
     public function __construct(ArticleRepository $articleRepository)
     {
@@ -19,18 +19,22 @@ class ArticleService
     }
 
     public function getArticle(int $data)
-    {
+    {     
         return $this->articleRepository->getArticleById($data);
     }
 
-    public function createArticle(array $data)
-    {
-        //dd($data['url']);
+    public function createArticle(array $data)    
+    {        
         return $this->articleRepository->createArticle($data);
     }
 
-    public function updateArticle(array $data)
+    public function updateArticle(array $data, int $id)
+    {        
+        return $this->articleRepository->updateArticle($data, $id);
+    }
+
+    public function deleteArticle(int $id)
     {
-        return $this->articleRepository->updateArticle($data);
+        return $this->articleRepository->deleteArticle($id);
     }
 }
