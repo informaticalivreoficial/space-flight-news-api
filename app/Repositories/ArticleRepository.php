@@ -19,15 +19,16 @@ class ArticleRepository
         return $this->entity->paginate($this->totalPage);
     }
 
-    public function getArticleById(int $data)
+    public function getArticleById(int $id)
     {
-        return $this->entity->where('id', $data)->firstOrfail();
+        return $this->entity->where('id', $id)->firstOrfail();
     }
 
     public function createArticle(array $data): Article
     {        
         $this->entity->fill($data);
-        $this->entity->launches = str_replace(['[', ']'], '', json_encode($data['launches']));
+        $this->entity->launches = json_encode($data['launches']);
+        $this->entity->events = json_encode($data['events']);
         $this->entity->save();
         return $this->entity;
     }
@@ -44,5 +45,10 @@ class ArticleRepository
     {
         $article = $this->entity->where('id', $id)->first();
         $article->delete();
+    }
+
+    public function find(int $id)
+    {
+        return $this->entity->where('id', $id)->first();
     }
 }

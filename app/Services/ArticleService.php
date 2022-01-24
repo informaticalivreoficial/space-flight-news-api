@@ -14,13 +14,14 @@ class ArticleService
     }
 
     public function getArticles()
-    {
+    {        
         return $this->articleRepository->getArticlesAll();
     }
 
-    public function getArticle(int $data)
-    {     
-        return $this->articleRepository->getArticleById($data);
+    public function getArticle(int $id)
+    {  
+        $article = $this->articleRepository->getArticleById($id);
+        return $this->articleRepository->getArticleById($id);
     }
 
     public function createArticle(array $data)    
@@ -36,5 +37,5 @@ class ArticleService
     public function deleteArticle(int $id)
     {
         return $this->articleRepository->deleteArticle($id);
-    }
+    }   
 }

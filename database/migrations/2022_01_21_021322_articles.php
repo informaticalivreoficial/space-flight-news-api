@@ -24,7 +24,7 @@ class Articles extends Migration
             
             $table->timestamps();   
             
-            $table->string('launches')->nullable();
+            $table->json('launches')->nullable();
             $table->string('events')->nullable();            
         });
     }

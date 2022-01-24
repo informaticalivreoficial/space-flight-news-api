@@ -31,14 +31,14 @@ class ArticleController extends Controller
     public function show(int $id)
     {
         try {
-            $article = $this->articleService->getArticle($id);
-            return json_encode(new ArticleResource($article), JSON_UNESCAPED_SLASHES); 
+            $article = $this->articleService->getArticle($id);            
+            return json_encode(new ArticleResource($article), JSON_UNESCAPED_SLASHES);             
         } catch(Throwable $exception) {
             $code = $exception->getCode() == 0 ? 500 : $exception->getCode();
             return response()->json([
                 'error' => $exception->getMessage()
             ], $code);
-        }         
+        }  
     }
 
     public function store(ArticleRequest $request)    
